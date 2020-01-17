@@ -115,7 +115,7 @@ fullName(p);
 //class 
 
 class Employee {
-    employeeName: string;
+    protected employeeName: string;
     
     constructor(name: string) {
         this.employeeName = name;
@@ -133,3 +133,17 @@ console.log(emp1.employeeName);
 emp1.greet();
 
 // Inheritance 
+
+class Manager extends Employee{
+    constructor(managerName: string){
+        super(managerName)
+    }
+    delegateWork(){
+        console.log(`Manager delegating tasks ${this.employeeName}`);
+    }
+}
+
+let m1 = new Manager('Bruce')
+m1.delegateWork();
+m1.greet();
+console.log(m1.employeeName)
