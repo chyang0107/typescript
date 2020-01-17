@@ -60,10 +60,35 @@ var anyType;
 anyType = 20;
 anyType = true;
 //* '?'--> makes the parameter optional.
+//! the optional parameter is the 2nd location
+// * the default value of the parameter 2
 function add(num1, num2) {
+    if (num2 === void 0) { num2 = 20; }
     if (num2)
         return (num1 + num2);
     else
         return num1;
 }
-add(5);
+console.log(add(5));
+function fullName(person) {
+    console.log(person.firstName + " " + person.lastName);
+}
+var p = {
+    firstName: 'Bruce'
+};
+fullName(p);
+//class 
+var Employee = /** @class */ (function () {
+    function Employee(name) {
+        this.employeeName = name;
+    }
+    Employee.prototype.greet = function () {
+        console.log("Good Morning " + this.employeeName);
+    };
+    return Employee;
+}());
+//instance
+var emp1 = new Employee('Vishwas');
+console.log(emp1.employeeName);
+emp1.greet();
+// Inheritance 

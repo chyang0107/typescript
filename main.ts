@@ -74,12 +74,62 @@ anyType = 20;
 anyType = true;
 
 //* '?'--> makes the parameter optional.
-function add(num1:number, num2?:number) { 
+//! the optional parameter is the 2nd location
+// * the default value of the parameter 2
+function add(num1:number, num2:number = 20) { 
     if (num2)
         return (num1 + num2);
     else
         return num1;    
 }
 
-add(5);
+console.log(add(5));
 //I created a git project at home
+
+//Interface, date: 1/16/2020 
+// function fullName(person:{firstName: string, lastNmae: string}) {
+//     console.log(`${person.firstName} ${person.lastNmae}`)
+// };
+
+// let p = {
+//     firstName: 'Bruce',
+//     lastNmae: 'Wayne'
+// };
+
+// fullName(p);
+
+interface Person{
+    firstName: string;
+    lastName?:string;
+}
+
+function fullName(person:Person) {
+    console.log(`${person.firstName} ${person.lastName}`)
+}
+
+let p = {
+     firstName: 'Bruce'
+}
+fullName(p);
+
+//class 
+
+class Employee {
+    employeeName: string;
+    
+    constructor(name: string) {
+        this.employeeName = name;
+    }
+
+    greet(){
+        console.log(`Good Morning ${this.employeeName}`);
+    }
+
+}
+
+//instance
+let emp1 = new Employee('Vishwas');
+console.log(emp1.employeeName);
+emp1.greet();
+
+// Inheritance 
